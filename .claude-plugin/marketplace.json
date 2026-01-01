@@ -10,6 +10,13 @@
       "source": "./plugins/say-summary",
       "description": "Speaks a short summary of Claude's response using macOS TTS",
       "version": "1.0.0"
+    },
+    {
+      "name": "agent-council",
+      "source": "./plugins/agent-council",
+      "description": "Collect and synthesize opinions from multiple AI Agents",
+      "version": "1.0.0",
+      "skills": ["./plugins/agent-council/skills/agent-council"]
     }
   ]
 }
