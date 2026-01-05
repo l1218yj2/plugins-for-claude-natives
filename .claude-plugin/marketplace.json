@@ -25,6 +25,11 @@
       "name": "say-summary",
       "description": "Speaks a short summary of Claude's response using macOS TTS (Korean/English)",
       "source": "./plugins/say-summary"
+    },
+    {
+      "name": "youtube-digest",
+      "description": "Summarize YouTube videos with transcript extraction, insights, Korean translation, and learning quizzes",
+      "source": "./plugins/youtube-digest"
     }
   ]
 }
