@@ -78,8 +78,14 @@ class CalendarClient:
                 client_secret=token_data.get("client_secret"),
                 scopes=self.SCOPES,
             )
-            # quota project 설정 (있을 때만)
-            quota_project = token_data.get("quota_project_id")
+            # quota project 설정 - credentials.json에서 project_id 로드
+            default_project = None
+            creds_path = self.base_path / "accounts/credentials.json"
+            if creds_path.exists():
+                with open(creds_path) as cf:
+                    creds_data = json.load(cf)
+                    default_project = creds_data.get("installed", {}).get("project_id", default_project)
+            quota_project = token_data.get("quota_project_id", default_project)
             if quota_project:
                 creds = creds.with_quota_project(quota_project)
         else:
